@@ -18,10 +18,11 @@ export const Header = () => {
             spacing="200px" p={isNotSmallerScreen ? "32" : "0"}
             alignSelf="flex-start">
             <Box mt={isNotSmallerScreen ? "0" : "16"} alignSelf="flex-start" >
-                <Text fontSize="5xl" fontWeight="semibold">Hi, i am</Text>
+                <Text fontSize="5xl" fontWeight="semibold">Hi,</Text>
+                <Text fontSize="5xl" fontWeight="semibold">I am</Text>
                 <Text fontSize="7xl" fontWeight="bold" bgGradient="linear(to-r, cyan.400, blue.500,purple.600)" bgClip="text">Mohd Haroon Qureshi</Text>
                 <Text fontSize="3xl" fontWeight="semibold" color={isDark ? "gray.200" : "gray.500"}>MERN Developer</Text>
-                <Button mt={8} colorScheme="blue" onClick={() =>
+                <Button mt={8}  colorScheme="blue" width="195px" onClick={() =>
                     window.open("https://docs.google.com/document/d/1_zh_vPkaOP-EnAOw8i9qIx-WFsQ2L_nr_JAa7VHhUPA/edit?usp=sharing")}>Resume</Button>
             
             </Box>

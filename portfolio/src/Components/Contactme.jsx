@@ -21,11 +21,13 @@ return(
             <text fontWeight="100" fontSize="4xl" align="center">
             I'm currently looking for full-time MERN Stack! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at, <text>qureshiharoon010203@gmail.com</text>.
             </text>
-            <Heading mt="25px" fontWeight="100" fontSize="3xl">You can also connect me on</Heading>
-            <Flex mt="15px" w="150px" align="center" gap="15px">
-                <IconButton icon={<FaLinkedin/>} onClick={() =>window.open("https://www.linkedin.com/in/mohd-haroon-qureshi-b19827173/")}></IconButton>
-                <IconButton icon={<ImMail4/>} onClick={() =>window.open("https://www.qureshiharoon010203@gmail.com")}></IconButton>
-            </Flex>
+            <Heading mt="25px" align="center"  fontWeight="100" fontSize="3xl">You can also connect me on</Heading>
+            <Box align="center">
+                <Flex mt="15px" w="150px" align="center" gap="15px">
+                    <IconButton icon={<FaLinkedin/>} onClick={() =>window.open("https://www.linkedin.com/in/mohd-haroon-qureshi-b19827173/")}></IconButton>
+                    <IconButton icon={<ImMail4/>} onClick={() =>window.open("https://www.qureshiharoon010203@gmail.com")}></IconButton>
+                </Flex>
+            </Box>
         </Box>
         <Flex align="center" gap="8px">
             <FaRegCopyright/> <Text>2022 copyright all right reserved</Text>

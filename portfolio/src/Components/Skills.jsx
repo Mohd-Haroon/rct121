@@ -18,9 +18,10 @@ export const Skills=()=>{
             <Heading borderBottom="2px solid steelblue" mt="100px" mb="50px" fontWeight="100" align="center" fontSize="5xl">Skills</Heading>
             <Flex direction={["column", "row", "row"]} 
             gap="25px"
-            alignSelf="flex-start">
-                <Box w="350px">
-                    <Heading fontWeight="100" fontSize="3xl">Front-end Skills</Heading>
+            alignSelf="flex-end" >
+                <Box w="350px" >
+                    <Heading fontWeight="100" align="center" fontSize="3xl">Front-end Skills</Heading>
+                    <Box w="35%" align="center">
                     <Flex mt="30px" w="35%" direction="column" gap="10px">
                         <Flex p="15px" w="300px" boxShadow='outline' rounded='md' align="center" gap="15px">
                            <FaHtml5/> HTML
@@ -41,10 +42,11 @@ export const Skills=()=>{
                            <SiChakraui/> Chakra-UI
                         </Flex>
                     </Flex>
+                    </Box>
                 </Box>
                 <Box w="350px">
-                    <Heading fontWeight="100" fontSize="3xl">Back-end Skills</Heading>
-                    <Box w="35%">
+                    <Heading fontWeight="100" align="center" fontSize="3xl">Back-end Skills</Heading>
+                    <Box w="35%" align="center">
                     <Flex mt="30px" w="35%" direction="column" gap="10px">
                         <Flex p="15px" w="300px" boxShadow='outline' rounded='md' align="center" gap="15px">
                             <FaNodeJs/>Node.js

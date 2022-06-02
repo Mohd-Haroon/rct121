@@ -23,10 +23,10 @@ export const Projects=()=>{
                     <Text mt="10px" fontWeight="300">React | Redux | Node | Express | MongoDB</Text>
                     <Flex w="70%">
 
-                    <Button mt={8} colorScheme="blue" onClick={() =>
+                    <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
                     window.open("https://github.com/Mohd-Haroon/Big-basket-clone")}>Code</Button> 
                     <Spacer />
-                    <Button mt={8} colorScheme="blue" onClick={() =>
+                    <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
                     window.open("https://big-basket-clone-by-masai-school.netlify.app/")}>Live</Button>
                     </Flex>
                 </Box>
@@ -38,10 +38,10 @@ export const Projects=()=>{
                     <Text mt="10px" fontWeight="300">HTML | CSS | JavaScript</Text>
                     <Flex w="70%">
 
-                    <Button mt={8} colorScheme="blue" onClick={() =>
+                    <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
                     window.open("https://github.com/Mohd-Haroon/Nyka-man-clone")}>Code</Button> 
                     <Spacer />
-                    <Button mt={8} colorScheme="blue" onClick={() =>
+                    <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
                     window.open("https://remarkable-klepon-8f9936.netlify.app/")}>Live</Button>
                     </Flex>
                 </Box>
@@ -53,10 +53,10 @@ export const Projects=()=>{
                     <Text mt="10px" fontWeight="300">HTML | CSS | JavaScript </Text>
                     <Flex w="70%">
 
-                    <Button mt={8} colorScheme="blue" onClick={() =>
+                    <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
                     window.open("https://github.com/Mohd-Haroon/netmeds.com/tree/main")}>Code</Button> 
                     <Spacer />
-                    <Button mt={8} colorScheme="blue" onClick={() =>
+                    <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
                     window.open("https://condescending-knuth-5e7b4b.netlify.app/")}>Live</Button>
                     </Flex>
                 </Box>            
