@@ -18,7 +18,7 @@ export const Profile=()=>{
                 <Image align="center" mt={isNotSmallerScreen ? "0" : "12"}
                 mb={isNotSmallerScreen?"0":"12"} borderRadius="full" 
                 backgroundColor="transparent" box="lg" 
-                boxSize="350px" src="https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-29%20at%209.01.26%20AM.jpeg?raw=true" />
+                boxSize="350px" src="https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-06-02%20at%208.46.15%20AM.jpeg?raw=true" />
                 <VStack align="center"  ml="5%">
                     <Heading borderBottom="2px solid steelblue" fontWeight="5" align="center" fontSize="5xl" >About Me</Heading>
                     <Center w="70%" mt="30px">
