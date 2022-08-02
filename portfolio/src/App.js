@@ -14,7 +14,7 @@ function App() {
   const {colorMode, toggleColorMode} = useColorMode();
   const isDark = colorMode === "dark";
   return (
-    <VStack p={5}  width="100%">
+    <VStack p={2}  width="100%">
       <Flex borderRadius="5px" p="8px" align="center" w="100%" border="1px solid grey" direction={["column", "column", "row"]} position="sticky" top="0" backgroundColor={isDark?"#1a202c":"white"} backdrop-filter="blurt(20px)">
         <Heading ml="8" size="md" fontWeight="semibold" color="cyan.400">
           imMHQ
@@ -44,7 +44,7 @@ function App() {
         <IconButton ml={2} icon={isDark ? <FaSun/> : <FaMoon/> } isRound='true' onClick={toggleColorMode}></IconButton>
         </Flex>
       </Flex>
-      <Box id="home">
+      <Box id="home" w="100%">
         <Header />
       </Box>
       <Box id="about">
