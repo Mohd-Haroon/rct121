@@ -16,7 +16,7 @@ let data=[
         liveLink:'https://big-basket-clone-by-masai-school.netlify.app/'
     },
     {
-        imageurl:'https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.27%20PM.jpeg?raw=true',
+        imageurl:'https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.27%20PM.jpeg',
         nameproject:'Nykaa Man Clone',
         sitedetails:'BigBasket an online supermarket where user can buy different daily need products',
         collaborate:'A collaborative project, built in 5 days by a team of 5 developers',
@@ -72,7 +72,7 @@ export const Projects=()=>{
             <Heading borderBottom="2px solid steelblue" mt="100px" mb="50px" fontWeight="100" align="center" fontSize="5xl">Recent Projects</Heading>
             <SimpleGrid  w="60%" columns={[1,2,2]} gap="20px">
                 <Box  p="15px" border="2px solid steelblue" borderRadius="5px"  _hover={{boxShadow:'dark-lg',transform: 'scale(1.05)',transition:"all .25s ease-in"}} _focus={{ boxShadow: "outline" }}>
-                    <Image src="https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.28%20PM.jpeg?raw=true" />
+                    <Image src="https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.28%20PM.jpeg" />
                     <Text mt="10px" fontWeight="300" fontSize="1.5rem">BigBasket Clone</Text>
                     <Text mt="10px" fontWeight="300">BigBasket an online supermarket where user can buy different daily need products</Text>
                     <Text mt="10px" fontWeight="300">A collaborative project, built in 5 days by a team of 5 developers.</Text>
@@ -80,14 +80,14 @@ export const Projects=()=>{
                     <Flex w="70%">
 
                     <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
-                    window.open("https://github.com/Mohd-Haroon/Big-basket-clone")}  zIndex={-1} >Code</Button> 
+                    window.open("https://github.com/Mohd-Haroon/Big-basket-clone")}  >Code</Button> 
                     <Spacer />
                     <Button width="125px" mt={8} colorScheme="blue" onClick={() =>
-                    window.open("https://big-basket-clone-by-masai-school.netlify.app/")} zIndex={-1}>Live</Button>
+                    window.open("https://big-basket-clone-by-masai-school.netlify.app/")} >Live</Button>
                     </Flex>
                 </Box>
                 <Box p="15px" border="2px solid steelblue" borderRadius="5px"  _hover={{boxShadow:'dark-lg'}}>
-                    <Image src="https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.27%20PM.jpeg?raw=true"/>
+                    <Image src="https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.27%20PM.jpeg"/>
                     <Text mt="10px" fontWeight="300" fontSize="1.5rem">Nykaa Man Clone</Text>
                     <Text mt="10px" fontWeight="300">BigBasket an online supermarket where user can buy different daily need products</Text>
                     <Text mt="10px" fontWeight="300">A collaborative project, built in 5 days by a team of 5 developers.</Text>
