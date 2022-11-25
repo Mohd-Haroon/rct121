@@ -5,6 +5,8 @@ const getGithubusers = (q = "react", page = 1, perpage) => {
     method: "GET",
     params: {
       q,
+      sort:"forks",
+      order:"asc",
       per_page: perpage,
       page,
     },
@@ -37,13 +39,13 @@ export const Repository = () => {
       });
   }, [query, page, perpage]);
 
-  console.log(data);
-  console.log("totalpage", totalpage);
+  // console.log(data);
+  // console.log("totalpage", totalpage);
 
   const handleClick = (query) => setQuery(query);
 
   const pages = (page) => setPerPage(page);
-  console.log("pages", perpage);
+  // console.log("pages", perpage);
 
   return (
     <div style={{ width: "80%", margin: "auto" }}>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var obj=[
+        {name:"Primary",bgcolor:"blue",color:"white"},
+        {name:"Secondary",bgcolor:"grey",color:"white"},
+        {name:"Success",bgcolor:"green",color:"white"},
+        {name:"danger",bgcolor:"red",color:"white"},
+        {name:"Warning",bgcolor:"yellow",color:"black"},
+        {name:"Info",bgcolor:"teal",color:"white"},
+        {name:"Light",bgcolor:"white",color:"black"},
+        {name:"Dark",bgcolor:"black",color:"white"},
+        {name:"Link",bgcolor:"white",color:"Blue"},
+
+        
+    ];
+
+    obj.map(function(elem,index,array){
+            var btn= document.createElement("button")
+            btn.innerText= elem.name
+            btn.style.backgroundColor=elem.bgcolor
+            btn.style.color=elem.color
+
+            document.querySelector("body").append(btn)
+        })
+
+</script>

@@ -12,10 +12,10 @@ export const Header = () => {
 
   return (
 
-      <Stack bgGradient="linear(180de,#008a, #ff137d)">
-          <Circle position="absolute" bg="blue.100" opacity="0.1" w="300px" h="300px" alignSelf="flex-end" />
+      <Stack bgGradient="linear(180de,#008a, #ff137d)" w="100%">
+          <Circle position="absolute" bg="blue.100" opacity="0.1" w="250px" h="250px" alignSelf="flex-end" />
           <Flex direction={["column", "row", "row"]} 
-            spacing="200px" p={isNotSmallerScreen ? "32" : "0"}
+             p={isNotSmallerScreen ? "0" : "0"}
             alignSelf="flex-start">
             <Box mt={isNotSmallerScreen ? "0" : "16"} alignSelf="flex-start">
                 <Text fontSize="5xl" fontWeight="semibold">Hi,</Text>
@@ -23,14 +23,9 @@ export const Header = () => {
                 <Text fontSize="7xl" fontWeight="bold" bgGradient="linear(to-r, cyan.400, blue.500,purple.600)" bgClip="text">Mohd Haroon Qureshi</Text>
                 <Text fontSize="3xl" fontWeight="semibold" color={isDark ? "gray.200" : "gray.500"}>MERN Developer</Text>
                 <Button mt={8}  colorScheme="blue" width="195px" onClick={() =>
-                    window.open("https://drive.google.com/file/d/1dbT0ag2UzbtKVy3XKf9MtWN2qrbtOp5R/view?usp=sharing")}  >Resume</Button>
-            
+                    window.open("https://drive.google.com/file/d/1C1cjcwP6CkViKUbx-oRyHlOzeT0KlMBI/view?usp=sharing")}  >Resume</Button>
             </Box>
-            {/* <Image align="center" mt={isNotSmallerScreen ? "0" : "12"}
-                mb={isNotSmallerScreen?"0":"12"} borderRadius="full" 
-                backgroundColor="transparent" box="lg" 
-                boxSize="300px" src="https://media-exp1.licdn.com/dms/image/C5603AQHFvd32qvdwdw/profile-displayphoto-shrink_100_100/0/1649917419039?e=1658966400&v=beta&t=F3Rxi-DTJQz4ygMyPKYgzse60-lJ-CCGf_KOVmR8EeA" />
-                 */}
+            
           </Flex>
       </Stack>
   )

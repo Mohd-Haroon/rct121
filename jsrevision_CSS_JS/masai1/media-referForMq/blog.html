@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            grid-template-rows: 100px auto;
+            gap: 10px;
+            justify-content: center;
+            grid-template-areas:
+            "nav nav nav"
+            "b1 b2 b3";
+        }
+        #cont>div:nth-child(1){
+            grid-area: nav;
+            text-align: center;
+            padding: 0 20px;
+            background-color: yellow;
+        }
+        #cont>div:nth-child(2){
+            grid-area: b1;
+            background-color: red;
+        }
+        #cont>div:nth-child(3){
+            grid-area: b2;
+            background-color: green;
+        }
+        #cont>div:nth-child(4){
+            grid-area: b3;
+            background-color: blue;
+        }
+        
+        @media all and (min-width:380px) and (max-width:700px) {
+            #cont {
+            display: grid;
+            grid-template-columns: repeat(2, 300px);
+            grid-template-rows: 100px auto auto auto;
+            gap: 10px;
+            grid-template-areas:
+            "nav nav"
+            "b1 b3"
+            "b2 .";
+        }
+        @media all and (min-width:50px) and (max-width:379px) {
+            #cont {
+            display: grid;
+            grid-template-columns: 300px;
+            grid-template-rows: 90px auto auto auto;
+            gap: 10px;
+            grid-template-areas:
+            "nav"
+            "b1"
+            "b2"
+            "b3";
+        }
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <div><h1>OUR BLOG</h1></div>
+        <div>
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Black friday Guide:Best Sales & Discount
+                codes
+            </h3>
+            <p>
+                By Nancy Ward on July 22,2017
+            </p>
+            <p>
+                Duis ut velit gravida nibh bibendum commodo. Sus-
+                pendisse peilentesque mattis augue id euismod inter
+                dum et malesuade fames 
+            </p>
+        </div>
+
+        <div>
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Black friday Guide:Best Sales & Discount
+                codes
+            </h3>
+            <p>
+                By Nancy Ward on July 22,2017
+            </p>
+            <p>
+                Duis ut velit gravida nibh bibendum commodo. Sus-
+                pendisse peilentesque mattis augue id euismod inter
+                dum et malesuade fames 
+            </p>
+        </div>
+        <div>
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Black friday Guide:Best Sales & Discount
+                codes
+            </h3>
+            <p>
+                By Nancy Ward on July 22,2017
+            </p>
+            <p>
+                Duis ut velit gravida nibh bibendum commodo. Sus-
+                pendisse peilentesque mattis augue id euismod inter
+                dum et malesuade fames 
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit-2 C2</title>
+    <style>
+      #courses {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,auto);
+        gap: 10px;
+        width: 70%;
+        margin: auto;
+        justify-content: center;
+      }
+     
+      #courses>div {
+        border: 1px solid red;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        
+      }
+      .fr {
+        width: 25%;
+        height: 100%;
+        background-color: #8bbe55;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+        
+      }
+      .fr>img {
+        border-radius: 50%;
+        /* display: none; */
+      }
+      .sec {
+        width: 70%;
+        height: 100%;
+        background-color: white;
+        margin-top: -10px;
+      }
+      .sec>h2,p {
+        padding: 0px 10px;
+      }
+      .sec>p {
+        width: 65%;
+      }
+      .fr>image {
+        border-radius: 50%;
+      }
+      #bottom {
+        text-align: center;
+        margin-top: 100px;
+        background-color: #fafafa;
+        align-items: center;
+        /* width: 90% */
+        /* margin: auto; */
+      }
+      #teachers {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: auto;
+        gap: 15px;
+        width: 80%;
+        margin: auto;
+        /* border: 1px solid red; */
+        margin-top: 50px;
+      }
+      #teachers>div {
+        
+        /* border: 1px solid black; */
+        line-height: 15px;
+      } 
+      #teachers>div>h2+p {
+        color: red;
+      }
+      #bottom img {
+        width: 100%;
+        height: auto;
+      }
+
+      /* keep media queries at that last */
+      /* medium screens */
+      @media only screen and (min-width: 421px) and (max-width: 720px) {
+        #courses {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto auto auto;
+       
+      }
+      #teachers {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto auto;
+       
+      }
+    }
+
+
+      /* small screens */
+      @media only screen and (min-width: 0px) and (max-width: 420px) {
+        #courses {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto auto;
+       
+      }
+      #teachers {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+       
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Courses section - top section -->
+    <div id="courses">
+      <div>
+        <div class="fr"><img src="https://via.placeholder.com/70%" alt=""></div>
+        <div class="sec">
+          <h2>Business School</h2>
+          <p>Cras vitae tarpis lacinia,
+            la cus non,fermentaminis.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="fr"><img src="https://via.placeholder.com/70%" alt=""></div>
+        <div class="sec">
+          <h2>Marketing</h2>
+          <p>Cras vitae tarpis lacinia,
+            la cus non,fermentaminis.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="fr"><img src="https://via.placeholder.com/70%" alt=""></div>
+        <div class="sec">
+          <h2>Photography</h2>
+          <p>Cras vitae tarpis lacinia,
+            la cus non,fermentaminis.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="fr"><img src="https://via.placeholder.com/70%" alt=""></div>
+        <div class="sec">
+          <h2>Social Media</h2>
+          <p>Cras vitae tarpis lacinia,
+            la cus non,fermentaminis.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="fr"><img src="https://via.placeholder.com/70%" alt=""></div>
+        <div class="sec">
+          <h2>Development</h2>
+          <p>Cras vitae tarpis lacinia,
+            la cus non,fermentaminis.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="fr"><img src="https://via.placeholder.com/75%" alt=""></div>
+        <div class="sec">
+          <h2>Design</h2>
+          <p>Cras vitae tarpis lacinia,
+            la cus non,fermentaminis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="bottom">
+
+      <h1>Certified Teachers</h1>
+      <p id="description">
+        Separated they live in. A small river named Duden flows by their place and
+        supplies it with the necessary regelialia. It is a paradisematic country
+      </p>
+      <!-- Teachers Section -->
+      <div id="teachers">
+        <div>
+          <img src="https://via.placeholder.com/320x275" alt="">
+          <h2>Blanca Wilson</h2>
+          <p>Teacher</p>
+          <p>I am an ambitious,but apart from that, pretty
+            simple person
+          </p>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/320x275" alt="">
+          <h2>Mitch Parker</h2>
+          <p>English Teacher</p>
+          <p>I am an ambitious,but apart from that, pretty
+            simple person
+          </p>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/320x275" alt="">
+          <h2>Stella Smith</h2>
+          <p>Art Teacher</p>
+          <p>I am an ambitious,but apart from that, pretty
+            simple person
+          </p>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/320x275" alt="">
+          <h2>Monshe Henderson</h2>
+          <p>Science Teacher</p>
+          <p>I am an ambitious,but apart from that, pretty
+            simple person
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    
+  </body>
+</html>

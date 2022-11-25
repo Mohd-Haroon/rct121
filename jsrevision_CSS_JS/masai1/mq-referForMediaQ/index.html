@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #top {
+            width: 60%;
+            height: auto;
+            /* border: 1px solid red; */
+            margin: auto;
+            margin-bottom: 20px;
+            
+        }
+        #top>h1 {
+            /* width: 75%; */
+            text-align: center;
+            /* margin: auto; */
+            padding: 0% 10%;
+        }
+        #top>p {
+            text-align: center;
+        }
+       
+        #bot {
+            display: grid;
+            grid-template-columns: repeat(3,160px);
+            grid-template-rows: auto;
+            width: 55%;
+            margin: auto;
+            justify-content: center;
+            gap: 20px;
+        }
+        #bot>div {
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            text-align: center;
+        }
+        p+p {
+            padding: 0px 10px;
+        }
+        .fr,fr2 {
+            font-size: 14px;
+            padding: 5px 15px;
+            color: white;
+            background-color: 1px solid white;
+            color: blue;
+            border: 1px solid blue;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .fr2 {
+            padding: 5px 15px;
+            color: white;
+            border: 1px solid blue;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: blue;
+            color: white;
+            
+        }
+        /* #bot>div>h1+p {
+            margin-top: -20px;
+        }
+        #bot>div>p+p {
+            padding: 0 15px;
+        } */
+        div>h3+h1 {
+            color: green;
+        }
+        .sec>h3+h1 {
+            color: orange;
+        }.thr>h3+h1 {
+            color: blue;
+        }
+
+        /* mediud */
+        @media all and (min-width:381px) and (max-width:700px){
+            #bot {
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+        /* min */
+        @media all and (min-width: 50px) and (max-width: 380px){
+            #bot {
+                grid-template-columns: repeat(1,1fr);
+            }
+            #top>h1 {
+            /* width: 75%; */
+            /* text-align: left; */
+            /* margin: auto; */
+            padding: 0% ;
+            }
+            
+            #top {
+                width: 100%;
+                
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="top">
+        <h1>
+            Choose a plan that right for 
+            your Business
+        </h1>
+        <p>We colect review from our users so you can get an honest opinion of what an
+            experience with our website are you like
+        </p>
+    </div>
+    <div id="bot">
+        <div>
+            <h3>Starter Plan</h3>
+            <h1>Free</h1>
+            <p>
+                Per Month
+            </p>
+            <p>
+                We colect review from our users so you can get an honest opinion of what an
+                experience with our website are you like 
+            </p>
+            <button class="fr">Start Now</button>
+        </div>
+        <div class="sec">
+            <h3>Business Plan</h3>
+            <h1>$39.00</h1>
+            <p>
+                Per Month
+            </p>
+            <p>
+                We colect review from our users so you can get an honest opinion of what an
+                experience with our website are you like 
+            </p>
+            <button class="fr2">Start Now</button>
+        </div>
+        <div class="thr">
+            <h3>Premium Plan</h3>
+            <h1>$59.00</h1>
+            <p>
+                Per Month
+            </p>
+            <p>
+                We colect review from our users so you can get an honest opinion of what an
+                experience with our website are you like 
+            </p>
+            <button class="fr">Start Now</button>
+        </div>
+    </div>
+</body>
+</html>

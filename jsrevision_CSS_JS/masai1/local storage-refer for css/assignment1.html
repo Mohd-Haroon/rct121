@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="Prod">
+        <div id="formdiv">
+            <form id="form">
+                <h1>Add Product</h1>
+                <h3>Category</h3>
+                <select  id="selectd">
+                    <option value="Home Appliances">Home Appliances</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Books">Books</option>
+                </select>
+                <h3>Title</h3>
+                <input type="text" placeholder="Product Name" id="title">
+                <h3>Description</h3>
+                <textarea id="texta"  rows="4" cols="7">Write Here</textarea>
+                <h3>Price</h3>
+                <input type="text" placeholder="Price" id="price">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+
+        <div id="tablediv">
+            <h1>Product Info</h1>
+            <table>
+                <th>
+                    <tr>
+                        <th>#</th>
+                        <th> Categoryy</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </th>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+<script >
+    document.querySelector("#form").addEventListener("submit",details)
+    var detailarr =JSON.parse(localStorage.getItem("productarr")) || []
+
+     function details(event){
+         event.preventDefault()
+         var obj={
+             homeappliance: document.querySelector("#selectd").value,
+             title: document.querySelector("#title").value,
+             description : document.querySelector("#texta").value,
+             price: document.querySelector("#price").value,
+         }
+         detailarr.push(obj)
+         document.querySelector("#selectd").value =""
+         document.querySelector("#title").value =""
+         document.querySelector("#texta").value=""
+         document.querySelector("#price").value=""
+
+         console.log(obj)
+         localStorage.setItem("productarr",JSON.stringify(detailarr))
+     }
+     var count=1
+     var detaillist=JSON.parse(localStorage.getItem("productarr"))
+     
+     detaillist.map(function(elem){
+         var row=document.createElement("tr")
+         var col1=document.createElement("td")
+         col1.innertext=count 
+         count++
+         var col2=document.createElement("td")
+         col2.innerText=elem.homeappliance
+         var col3=document.createElement("td")
+         col3.innerText=elem.title
+         var col4=document.createElement("td")
+         col4.innerText=elem.description
+         var col5=document.createElement("td")
+         col5.innerText=elem.price
+
+         row.append(col1,col2,col3,col4,col5)
+         document.querySelector("tbody").append(row)
+
+     })
+</script>

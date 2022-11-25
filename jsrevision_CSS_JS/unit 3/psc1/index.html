@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <div id="navbar"></div>
+</body>
+</html> 
+<script type="module">
+    import header from './component/header.js'
+    // console.log('header',header)
+    let nav  = document.querySelector('#navbar')
+    nav.innerHTML = header()
+
+    let input_box = document.querySelector('#search-input')
+
+    input_box.addEventListener('keypress',()=>{
+        getdata(event)
+    })
+
+    let img= document.querySelector('#profile-img')
+    const getdata = async (e) =>{
+        try{
+            if(e.code === 'Enter' ){
+
+            let input= input_box.value
+
+            let res = await fetch(`https://api.github.com/users/${input}/repos`)
+            let data= await res.json()
+            console.log("data",data)
+            img.src= data[0].owner.avatar_url
+}
+        }
+        catch(err){
+            console.log("error",err)
+        }
+        
+
+
+    }
+
+//https://api.github.com/
+// user_repositories_url": "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}",
+
+</script>

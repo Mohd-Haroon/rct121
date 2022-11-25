@@ -23,7 +23,7 @@ export const Navbar = () => {
           <Link to="login" style={{ textDecoration: "none", color: "white" }}>
             Login
           </Link>
-          <Link to="cart" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
             <BsCart2 />
           </Link>
           

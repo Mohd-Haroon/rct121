@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            height: 700px;
+            width: 70%;
+            
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .child1 {
+            height: 75%;
+            width: 35%;
+            
+            margin-right: 80px;
+            margin-top: 100px;
+            margin-left: 50px;
+            
+        }
+        .child2 {
+            height: 75%;
+            width: 35%;
+            
+            margin-left: 95px;
+            margin-top: 100px;
+            background-color: black;
+        }
+        .child1>h1,input{
+            margin-left: 20px;
+        }
+        input{
+            width: 250px;
+            height: 40px;
+        }
+        .child1>p{
+            color: red;
+            font-size: 25px;
+            margin-left: 20px;
+        }
+        .child1>button{
+            width: 250px;
+            height: 40px;
+            margin-left: 20px;
+            background-color: black;
+            color: white;
+        }
+        .child2>p{
+            font-size: 50px;
+            margin-left: 20px;
+            margin-top: -10px;
+            color: white;
+        }
+        .child2>h1{
+            margin-left: 20px;
+            color: white;
+        }
+        .child2>h1:first-child{
+            margin-top: 65px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+
+        <div class="child1">
+            <h1>Name</h1>
+            <input type="text">
+            <h1>email</h1>
+            <input type="email">
+            <h1>Phone</h1>
+            <input type="number">
+            <p>Enter a valid mobile</p>
+            <button>REGISTER</button>
+
+        </div>
+        <div class="child2">
+            <h1>Name</h1>
+            <p>MASAI</p>
+            <h1>EMAIL</h1>
+            <h1>email@masai.school.com</h1>
+            <h1>MOBILE</h1>
+            <h1>1234567890</h1>
+
+        </div>
+
+    </div>
+</body>
+</html>

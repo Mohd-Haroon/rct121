@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+            width: 80%;
+            margin: auto;
+        }
+        #div2 {
+            display: flex;
+            width: auto;
+            /* justify-content: space-around; */
+            line-height: 0px;
+            align-items: center
+            ;
+        }
+        #div3 {
+            text-decoration: line-through;
+        }
+        #div2>h4,p {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+
+    </div>
+</body>
+</html>
+
+<script>
+    var data = [
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    }
+]
+
+    data.map(function(elem,index,array){
+        var div=document.createElement("div")
+
+        var image=document.createElement("img")
+        image.setAttribute("src",elem.imgUrl)
+        var h4=document.createElement("h4")
+        h4.innerText=elem.name
+        var div2=document.createElement("div")
+        // div2.setAttribute("id","div2")
+
+        var div3=document.createElement("div")
+        div3.setAttribute("id","div3")
+
+        var price=document.createElement("h3")
+        price.innerText=elem.price
+        var priceold=document.createElement("p")
+        priceold.innerText=elem.strikedOffPrice
+
+        div2.append(price)
+        div3.append(priceold)
+
+        var div4=document.createElement("div")
+        div4.setAttribute("id","div2")
+        div4.append(div2,div3)
+        
+
+        div.append(image,h4,div4)
+        document.querySelector("#cont").append(div)
+
+
+    })
+</script>

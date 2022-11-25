@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #parent {
+            height: 400px;
+            width: 100%;
+            
+            background-color: #212529;
+
+        }
+        #child {
+            height: 70%;
+            width: 80% ;
+            
+            margin: auto;
+            display: flex;
+            padding-top: 35px;
+
+        }
+        .lab {
+            height: 100%;
+            width: 40%;
+            
+        }
+        .links {
+            height: 100%;
+            width: 55%;
+            
+            margin-left: 60px;
+            display: flex ;
+
+        }
+        .text-lab {
+            color: #97A7AF;
+            font-size: 17px;
+            font-weight: 300;
+            text-align: justify;
+            }
+            .quick-link {
+                height: 100%;
+                width: 30%;
+                
+                margin-left: 10px;
+            }
+            h2 {
+                color: #fff;
+            }
+            p {
+                color: #97A7AF;
+                font-weight: 600;
+                font-size: 16px;
+            }
+    </style>
+</head>
+<body>
+    <div id="parent">
+
+        <div id="child">
+            <!-- lab -->
+            <div class="lab">
+                <img src="data:image/webp;base64,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" alt="">
+                <p class="text-lab">Utrust is a seamless integration that gives e-commerce businesses the power to accept digital currencies - and get all the benefit.</p>
+            </div>
+            <!-- links -->
+            <div class="links">
+
+                <div class="quick-link">
+                    <h2>Quick Links</h2>
+                    <p>Work</p>
+                    <p>Services</p>
+                    <p>Products</p>
+                    <p>Tips & Tricks</p>
+                </div>
+                <div class="quick-link">
+                    <h2>Support</h2>
+                    <p>Home</p>
+                    <p>About</p>
+                    <p>Services</p>
+                    <p>Blog</p>
+                    <P>Contact</P>
+                </div>
+                <div class="quick-link">
+                    <h2>Navigation</h2>
+                    <p>Work</p>
+                    <p>Services</p>
+                    <p>Products</p>
+                    <p>Tips & Tricks</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

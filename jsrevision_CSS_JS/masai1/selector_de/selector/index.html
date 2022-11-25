@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            width: 40%;
+            height: 600px;
+            border: 1px solid red;
+            margin: auto;
+            background-color: black;
+            
+        }
+        #parent>div {
+            width: 90%;
+            height: 95px;
+            border: 1px solid black;
+            margin: auto;
+            margin-top: 20px;
+        }
+        #parent>div>h2,p,h1 {
+            line-height: 5px;
+            text-align: center;
+        }
+        #parent>div>h2,P {
+            color: white;
+        }
+        #parent>div>h1 {
+            color: pink;
+        }
+        button {
+            width: 90%;
+            height: 50px;
+            margin-left: 25px;
+            border-radius: 15px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div>
+            <h2>Today Sun,26th Apr</h2>
+            <h2>Schedule -7:00 AM onwards</h2>
+        </div>
+        <div>
+            <p>Parathe Sharathe with</p>
+            <h1>Chef Archana Doshi</h1>
+            <h1>________</h1>
+        </div>
+        <div>
+            <p>Spices and immunity with</p>
+            <h1>Nutrition Expert Manasa Rajan</h1>
+            <h1>________</h1>
+        </div>
+        <div>
+            <p>Postman Vegetable with</p>
+            <h1>Chef Jason D'Souza</h1>
+        </div>
+        <div>
+            <button>SIGN UP NOW</button>
+        </div>
+    </div>
+</body>
+</html>

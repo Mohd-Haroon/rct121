@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        align-items: center;
+      }
+      input {
+        width: 200px;
+      }
+      #movies {
+        width: 206px;
+        height: 200px;
+        border: 1px solid red;
+        border-top: none;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <input oninput="debounce(main,1000)" type="text" id="querry" />
+
+    <div id="movies"></div>
+    <br />
+    <div id="display">Movie details</div>
+  </body>
+</html>
+
+<script>
+  let timerid;
+
+  async function searchMovie() {
+    try {
+      let A = document.querySelector("#querry").value;
+      console.log("input", A);
+      let res = await fetch(`https://www.omdbapi.com/?apikey=4da5d457&s=${A}`);
+
+      let data = await res.json();
+      console.log("data", data);
+      // appendmovies(data.Search)
+      let array_of_movies = data.Search;
+      return array_of_movies;
+    } catch (err) {
+      console.log("error", err);
+    }
+  }
+
+  let movie = document.querySelector("#movies");
+
+  function appendmovies(data) {
+    movie.innerHTML = null;
+
+    // if(data===undefined){
+    //     return false
+    // }
+
+    data.forEach(function (ele) {
+      let p = document.createElement("p");
+      p.innerText = ele.Title;
+
+      p.addEventListener("click", function () {
+        deatails(ele);
+      });
+      movie.append(p);
+    });
+  }
+  function deatails(ele) {
+    console.log("elem", ele);
+    document.querySelector("#display").innerHTML = "";
+    let div = document.createElement("div");
+
+    var imgg = document.createElement("img");
+    imgg.src = ele.Poster;
+    let p = document.createElement("p");
+    p.innerText = ele.Title;
+    let yor = document.createElement("p");
+    yor.innerText = ele.Year;
+    let imdb = document.createElement("p");
+    imdb.innerText = ele.imdbID;
+
+    div.append(imgg, p, yor, imdb);
+    document.querySelector("#display").append(div);
+  }
+
+  async function main() {
+    try {
+      let data = await searchMovie();
+      if (data === undefined) {
+        return false;
+      }
+      console.log("dta", data);
+
+      appendmovies(data);
+    } catch (err) {
+      console.log("error", err);
+    }
+  }
+
+  function debounce(func, delay) {
+    console.log("timerid", timerid);
+
+    if (timerid) {
+      clearTimeout(timerid); // inerrhtml=nul
+    }
+    timerid = setTimeout(function () {
+      func(); // still the main() function
+    }, delay);
+  }
+
+  // deatails(ele)
+</script>

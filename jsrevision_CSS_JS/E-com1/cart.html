@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cartitems</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+        .innerdiv {
+            display: flex;
+            justify-content: space-around;
+        
+        }
+        #carttop {
+            display: flex;
+            justify-content: flex-end;
+        }
+        #carttop>div {
+            padding: 10px 20px;
+            background-color: teal;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="carttop">
+        <div id="items">No. of items</div>
+        <div id="pricetot">Total price</div>
+    </div>
+    <div id="container">
+
+    </div>
+    <h2 id="totalp">0</h2>
+    <button id="checkout">Chech out</button>
+    <button id="Pay">Payment</button>
+</body>
+</html>
+<script>
+
+    var cartlist= JSON.parse(localStorage.getItem("cartlocal"))
+    console.log(cartlist)
+
+    function displaydata(data){
+            document.querySelector("#container").innerHTML=""
+            data.map(function(elem,index){
+            var md = document.createElement("div")
+
+            var image= document.createElement("img")
+            image.setAttribute("src",elem.image_url)
+            var name=document.createElement("p")
+            name.innerText=elem.name
+
+            var innd= document.createElement("div")
+            innd.setAttribute("class","innerdiv")
+
+            var price=document.createElement("p")
+            price.innerText=elem.price
+
+            var qty=document.createElement("p")
+            qty.innerText="qty"+"-"+elem.quant
+
+            var sprice=document.createElement("p")
+            sprice.innerText=elem.strikedoffprice
+            sprice.style.textDecoration="line-through"
+
+            innd.append(price,qty,sprice)
+            
+            var bt2= document.createElement("button")
+            bt2.innerText="Add +1"
+            bt2.addEventListener("click",function(){
+                increseqty(index)
+            })
+
+            var bt3= document.createElement("button")
+            bt3.innerText="Add -1"
+            bt3.addEventListener("click",function(){
+                decreseqty(index)
+            })
+
+            md.append(image,name,innd,bt2,bt3)
+            document.querySelector("#container").append(md)
+
+        })
+
+    }
+    var countofitem= cartlist.length
+    var itemcount= document.querySelector("#items")
+    itemcount.innerText= "Total item"+" "+countofitem
+    console.log(countofitem)
+
+
+    function displaytotal(){
+            var totalprice= cartlist.reduce(function(acc,elem){
+            return acc+ (elem.price * elem.quant)
+            
+        },0)
+
+        var tot=document.querySelector("#totalp")
+        tot.innerText= "Total amount"+"-$"+totalprice
+        var tot1=document.querySelector("#pricetot")
+        tot1.innerText= "Total amount"+"-$"+totalprice
+    }
+
+
+    displaydata(cartlist)
+    displaytotal()
+
+    function increseqty(index){
+        console.log(index)
+        cartlist[index].quant++
+        console.log(cartlist)
+        localStorage.setItem("cartlocal",JSON.stringify(cartlist))
+        
+        displaydata(cartlist)
+        displaytotal()
+    }
+
+    function decreseqty(index){
+        console.log(index)
+        cartlist[index].quant--
+        console.log(cartlist)
+        localStorage.setItem("cartlocal",JSON.stringify(cartlist))
+        
+        displaydata(cartlist)
+        displaytotal()
+    }
+    
+    // var check= 
+    document.querySelector("#checkout").addEventListener("click", function(){
+        window.location.href="checkout.html"
+    })
+    document.querySelector("#pay").addEventListener("click", function(){
+        window.location.href="payment.html"
+    })
+</script>

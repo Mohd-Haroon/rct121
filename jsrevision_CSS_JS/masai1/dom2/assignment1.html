@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 100%;
+            height: 75px;
+            /* border: 1px solid orange; */
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+        }
+        #container>div {
+            height: auto;
+            width: auto;
+            /* border: 1px solid red; */
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        #container>div:nth-child(1){
+            background-color: blue ;
+            color: white;
+        }
+        #container>div:nth-child(2){
+            background-color: grey ;
+            color: white;
+        }
+        #container>div:nth-child(3){
+            background-color: green ;
+            color: white;
+        }
+        #container>div:nth-child(4){
+            background-color: red ;
+            color: white;
+        }
+        #container>div:nth-child(5){
+            background-color: yellow ;
+            color: black;
+        }
+        #container>div:nth-child(6){
+            background-color: #14a2b8 ;
+            color: white;
+        }
+        #container>div:nth-child(7){
+            background-color: white ;
+            color: black;
+        }
+        #container>div:nth-child(8){
+            background-color: #343a40 ;
+            color: white;
+        }
+        #container>div:nth-child(9){
+            background-color: white ;
+            color: #4399ff;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>Primary</div>
+        <div>Secondary</div>
+        <div>Success</div>
+        <div>Danger</div>
+        <div>Warning</div>
+        <div>info</div>
+        <div>light</div>
+        <div>Dark</div>
+        <div>link</div>
+    </div>
+</body>
+</html>

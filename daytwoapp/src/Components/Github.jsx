@@ -1,10 +1,15 @@
 import React from "react";
 import axios from "axios";
+
+
+
 const getGithubusers = (q = "masai", page = 1) => {
   return axios("https://api.github.com/search/users", {
     method: "GET",
     params: {
       q,
+      sort:"id",
+      order:"desc",
       per_page: 5,
       page,
     },
@@ -25,7 +30,7 @@ export const Github = () => {
         setLoading(false);
         setError(false);
         setData(res.data);
-        // console.log("res",res.data)
+        console.log("res",res.data)
       })
       .catch((err) => {
         setLoading(false);
@@ -34,7 +39,7 @@ export const Github = () => {
       });
   }, [query, page]);
 
-  console.log(data);
+  // console.log(data);
 
   const handleClick = (query) => setQuery(query);
   return (

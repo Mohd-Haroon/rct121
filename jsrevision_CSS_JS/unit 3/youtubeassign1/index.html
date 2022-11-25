@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #search_results {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Youtube</h1>
+    <input type="text" id="search">
+
+    <button onclick="searchVideos()">Search</button>
+
+    <div id="search_results"></div>
+
+</body>
+</html>
+<script>
+    //url   https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=football&key=[YOUR_API_KEY] HTTP/1.1
+    //apikey  AIzaSyBqf3vhMS7AaTt1dx-y8umrcrbfUMsiXzc
+
+    const search_div = document.querySelector('#search_results')
+
+    const searchVideos = async ()=>{
+
+        try {
+            let inp = document.querySelector("#search").value 
+            let res = await fetch(` https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${inp}&key=AIzaSyBqf3vhMS7AaTt1dx-y8umrcrbfUMsiXzc&maxResults=10`)
+            let data = await res.json()
+            // console.log('data',data)
+            let videos = data.items
+            console.log("videos",videos)
+            appendvideos(videos)
+            // return videos
+
+        }
+        catch(error){
+            console.log(error)
+
+        }
+    } 
+
+    const appendvideos = (data) =>{
+        search_div.innerHTML=null
+        data.forEach((ele)=>{
+            
+
+            let div = document.createElement('div')
+            let title =document.createElement('p')
+            title.innerText=ele.snippet.title
+            let image =document.createElement('img')
+            image.src = ele.snippet.thumbnails.medium.url
+            image.addEventListener("click",function(){
+                frame(ele)
+            })
+
+            // iframe.height = "100%"
+            // iframe.width = "100%"
+            // iframe.allow = "fullscreen"
+            div.append(image,title)
+            search_div.append(div)
+        })
+    }
+
+    const frame= (ele)=>{
+        // framei.clear()
+        let a= ele.id.videoId
+        let obj={
+            url: `https://www.youtube.com/embed/${a}`
+        }
+        console.log(obj)
+        localStorage.setItem("framei",JSON.stringify(obj))
+        window.location.href='display.html'
+    }
+
+    //embed src="https://www.youtube.com/embed/I3nIjHOJLKc"
+</script>

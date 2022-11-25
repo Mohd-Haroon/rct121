@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #body {
+            width: 500px;
+            height: auto;
+            border: 1px solid red;
+            margin: auto;
+            text-align: center;
+        }
+        #top {
+            height: 100px;
+            width: 90%;
+            border:1px solid yellow;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        #min {
+            width: 40%;
+            text-align: center;
+        }
+        #min>div {
+            width: 150px;
+            height: 50px;
+            background-color: red;
+            text-align: center;
+        }
+        #max {
+            width: 40%;
+            text-align: center;
+        }
+        #max>div {
+            width: 150px;
+            height: 50px;
+            background-color: green;
+            text-align: center;
+        }
+        #mid {
+            text-align: center;
+        }
+        #score {
+            width: 200px;
+            height: 50px;
+            background-color: green;
+            margin: auto;
+        }
+        #keypad {
+            display: grid;
+            grid-template-columns: repeat(3,100px);
+            /* margin: auto; */
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+            margin-left: 50px;
+
+        }
+        .green {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+        }
+        .red {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+        .purple {
+            width: 50px;
+            height: 50px;
+            background-color: purple;
+            margin-left: 110%;
+        }
+        #bott {
+            margin: auto;
+        }
+        button {
+            margin-top: 50px;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="body">
+        <div id="top">
+            <div id="min">
+                <div id="mins">40</div>
+                <p>MIN</p>
+            </div>
+
+            <div id="max">
+                <div id="maxs">2022</div>
+                <p>MAX</p>
+            </div>
+        </div>
+
+        <div id="mid">
+            <h3>score</h3>
+            <div id="score">#</div>
+        </div>
+
+        <div id="keypad">
+            <div id="box1" class="green" onclick="press('1');">1</div>
+            <div id="box2" class="red" onclick="press('2');">2</div>
+            <div id="box3" class="green" onclick="press('3');">3</div>
+            <div id="box4" class="red" onclick="press('4');">4</div>
+            <div id="box5" class="red" onclick="press('5');">5</div>
+            <div id="box6" class="red" onclick="press('6');">6</div>
+            <div id="box7" class="green" onclick="press('7');">7</div>
+            <div id="box8" class="red" onclick="press('8');">8</div>
+            <div id="box9" class="green" onclick="press('9');">9</div>
+            <div id="box0" class="purple" onclick="press('0');">0</div>
+        </div>
+
+        <div id="bott">
+            <button id="enter" onclick="setscore()">ENTER</button>
+        </div>
+    
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    var bag=""
+    var min=40
+    var max=2022
+
+    function press(num){
+        bag=bag+num
+        console.log(bag)
+        document.querySelector("#score").innerText = bag
+    }
+
+    function setscore(){
+        if(Number(bag)>max){
+            max=bag
+            document.querySelector("#maxs").innerText = max
+        }
+        else if(Number(bag)<min){
+            min=bag
+            document.querySelector("#mins").innerText = min
+        }
+        bag=""
+        document.querySelector("#score").innerText=""
+    }
+
+</script>

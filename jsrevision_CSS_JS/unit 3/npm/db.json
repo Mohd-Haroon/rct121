@@ -1,0 +1,21 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Nrupul"
+    },
+    {
+      "id": 2,
+      "name": "Dhawal"
+    },
+    {
+      "id": 3,
+      "name": "swanand"
+    },
+    {
+      "name": "Batman",
+      "city": "Gotham",
+      "id": 4
+    }
+  ]
+}

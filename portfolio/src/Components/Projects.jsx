@@ -16,6 +16,15 @@ let data=[
         liveLink:'https://cronometer-6018.netlify.app/'
     },
     {
+        imageurl:'https://github.com/Mohd-Haroon/rhetorical-cub-8075/blob/Master/Website%20Sneak%20Peeks/LandingPage.png?raw=true',
+        nameproject:'Sugarcosmetic-clone',
+        sitedetails:'SugarCosmetic is an e-commerce website which deals in makeup products.',
+        collaborate:'A collaborative project, built in 5 days by a team of 5 developers',
+        techstack:'MERN Stack | Chakra-UI library ',
+        codelink:'https://github.com/Mohd-Haroon/rhetorical-cub-8075',
+        liveLink:'https://sugarcosmoclone.netlify.app/'
+    },
+    {
         imageurl:'https://github.com/Mohd-Haroon/Dnaindia-Clone/blob/main/dnaindia-clone/Screenshot%20(1413).png?raw=true',
         nameproject:'DNAindia clone',
         sitedetails:'One of the leading newspaper and news portal in India',
@@ -43,15 +52,6 @@ let data=[
         liveLink:'https://big-basket-clone-by-masai-school.netlify.app/'
     },
     {
-        imageurl:'https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.27%20PM.jpeg?raw=true',
-        nameproject:'Nykaa Man Clone',
-        sitedetails:'BigBasket an online supermarket where user can buy different daily need products',
-        collaborate:'A collaborative project, built in 5 days by a team of 5 developers',
-        techstack:'HTML | CSS | JavaScript',
-        codelink:'https://github.com/Mohd-Haroon/Nyka-man-clone',
-        liveLink:'https://remarkable-klepon-8f9936.netlify.app/'
-    },
-    {
         imageurl:'https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.28%20PM%20(1).jpeg?raw=true',
         nameproject:'Netmeds Clone',
         sitedetails:'An e-commerce website that provides different grooming products for men.',
@@ -74,7 +74,7 @@ export const Projects=()=>{
             <SimpleGrid  w={['100%', '75%', '75%',"60%"]} columns={[1,1,1,2]} gap="20px">
                 {
                     data.map((ele,ind)=>(
-                        <Box  p="15px" border="2px solid steelblue" borderRadius="5px"  _hover={{boxShadow:'dark-lg',transform: 'scale(1.05)',transition:"all .25s ease-in"}} _focus={{ boxShadow: "outline" }}>
+                        <Box key={ind}  p="15px" border="2px solid steelblue" borderRadius="5px"  _hover={{boxShadow:'dark-lg',transform: 'scale(1.05)',transition:"all .25s ease-in"}} _focus={{ boxShadow: "outline" }}>
                             <Image src={ele.imageurl} w="500px" h="280px"/>
                             <Text mt="5px" fontWeight="400" fontSize="1.5rem">{ele.nameproject}</Text>
                             <Text mt="5px" fontWeight="400">{ele.sitedetails}</Text>
@@ -144,3 +144,14 @@ export const Projects=()=>{
                     window.open("https://big-basket-clone-by-masai-school.netlify.app/")} >Live</Button>
                     </Flex>
                 </Box> */}
+
+
+                // {
+                //     imageurl:'https://github.com/Mohd-Haroon/rct121/blob/main/WhatsApp%20Image%202022-05-28%20at%206.50.27%20PM.jpeg?raw=true',
+                //     nameproject:'Nykaa Man Clone',
+                //     sitedetails:'BigBasket an online supermarket where user can buy different daily need products',
+                //     collaborate:'A collaborative project, built in 5 days by a team of 5 developers',
+                //     techstack:'HTML | CSS | JavaScript',
+                //     codelink:'https://github.com/Mohd-Haroon/Nyka-man-clone',
+                //     liveLink:'https://remarkable-klepon-8f9936.netlify.app/'
+                // },

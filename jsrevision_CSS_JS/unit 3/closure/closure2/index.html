@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="searchMovie()"></button>
+
+    <!-- <div id="movies"></div> -->
+</body>
+</html>
+<script>
+    // // api key e784483fceaa4af28e98cdb3db695efe
+    // let url = 'https://api.themoviedb.org/3/trending/movie/day?api_key=e784483fceaa4af28e98cdb3db695efe'
+    // https://developers.themoviedb.org/3/getting-started/images
+    
+    // https://image.tmdb.org/t/p/w500/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg   path dalna tha isma
+
+    async function searchMovie(){
+    try{
+        // let A = document.querySelector("#querry").value
+        // console.log("input",A)
+        let res =await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=e784483fceaa4af28e98cdb3db695efe`)
+
+        let data = await res.json()
+        console.log("data",data)
+        let image = 'https://developers.themoviedb.org/3/getting-started/images'
+        // appendmovies(data.Search)
+        // let array_of_movies = data.Search
+        // return array_of_movies
+        }
+        catch(err){
+            console.log("error",err)
+        }
+    
+}
+</script>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Page</title>
+    <style>
+        #cont {
+            display: flex;
+            gap: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="cont">
+        <div>
+            <h2>Register Here</h2>
+            <form id="formregister">
+                <input type="text" name="name" placeholderid="name" placeholder="Type name here">
+                <br>
+                <input type="text" name="email" placeholderid="email" placeholder="Email">
+                <br>
+                <input type="password" name="password" placeholderid="password" placeholder="Password">
+                <br>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <br>
+                <input type="number" name="mobile" id="mobile" placeholder="mobile no.">
+                <br>
+                <input type="text" name="desc" id="desc" placeholder="Description">
+                <br>
+                <input type="submit" value="Sign up">
+
+            </form>
+        </div>
+
+        <div>
+            <h2>Login Here</h2>
+            <form id="loginform">
+                <input type="text" name="username1" id="username1" placeholder="Username">
+                <br>
+                <input type="password" name="password1" id="password" placeholder="Password">
+                <br>
+                <input type="submit" value="Login">
+                
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    // https://github.com/masai-school/api-mocker/wiki/Authentication-API
+    //  https://masai-api-mocker.herokuapp.com
+
+    window.addEventListener("load", function(){
+
+        //for registering
+        let registerform = document.getElementById("formregister")
+
+        registerform.addEventListener("submit", function(event){
+            event.preventDefault()
+            const formData = new FormData(registerform)
+            console.log(formData.get("nmae"))
+            let name = formData.get("name")
+            let email = formData.get("email")
+            let password = formData.get("passsword")
+            let username = formData.get("username")
+            let mobile = formData.get("mobile")
+            let description = formData.get("desc")
+
+            let obj = {
+                name,
+                email,
+                password,
+                username,
+                mobile,
+                description
+            }
+            console.log(obj)
+            let payload = JSON.stringify(obj)
+            console.log(payload)
+            register(payload)
+        })
+
+        //login
+        let login = document.getElementById('loginform')
+
+        login.addEventListener('submit', function(event){
+            event.preventDefault();
+            const loginformData = new FormData(login);
+            console.log(loginformData.get(''))
+            const username = loginformData.get('username1');
+            const password = loginformData.get('password1');
+
+            let obj ={
+                password,
+                username,
+            }
+            console.log(obj)
+            // localStorage.setItem("username",username);
+            
+            // let payload = JSON.stringify(obj)
+
+            // login(payload)
+
+        })
+    })
+
+    const register = (data)=>{
+        //we need to send/post the data to the server
+
+        fetch(`https://masai-api-mocker.herokuapp.com/auth/register`,{
+            method: 'POst',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: data
+        })
+        .then((res) => res.json())
+        .then((data)=> console.log(data))
+        .catch((err)=> console.log(err))
+    }
+
+
+    const login = (data)=>{
+        //we need to send/post the data to the server
+
+        fetch(`https://masai-api-mocker.herokuapp.com/auth/login`,{
+            method: 'POst',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: data
+        })
+        .then((res) => res.json())
+        .then((data)=> {
+            if(data.error){
+                console.error(data.message);
+            }
+            else{
+                localStorage.setItem('token',data.token)
+                window.localStorage.href="second.html"
+            }
+        })
+        .catch((err)=> console.log(err))
+
+       
+
+        // localStorage.setItem('token',)
+    }
+
+    // name -Umar email-u@gmail.com pass-u@123 username-umar121 phone-9876542581 just vibing
+
+</script>

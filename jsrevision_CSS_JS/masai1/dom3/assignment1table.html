@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>English</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    var data=[
+        {name:"Elon",Maths:"80",science:"75",eng:"80"},
+        {name:"steve",Maths:"60",science:"70",eng:"80"},
+        {name:"tony",Maths:"99",science:"100",eng:"80"},
+        {name:"Spidy",Maths:"95",science:"100",eng:"80"},
+        {name:"Hawk-eye",Maths:"60",science:"70",eng:"80"},
+        {name:"Blackwidow",Maths:"90",science:"60",eng:"80"},
+    ]
+
+    data.map(function(elem,index,array){
+        var row=document.createElement("tr")
+        var c1=document.createElement("td")
+        c1.innerText=elem.name
+        var c2=document.createElement("td")
+        c2.innerText=elem.science
+        var c3=document.createElement("td")
+        c3.innerText=elem.Maths
+        var c4=document.createElement("td")
+        c4.innerText=elem.eng
+        row.append(c1,c2,c3,c4)
+        document.querySelector("tbody").append(row)
+    })
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+        .innerdiv {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <button>Goto cart</button>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script src="./womensData.js"></script>
+<script>
+    var mandatas= JSON.parse(localStorage.getItem("womensData"))
+    // console.log(mandatas)
+    var cart=[]
+    mandatas.map(function(elem,index){
+        var md = document.createElement("div")
+
+        var image= document.createElement("img")
+        image.setAttribute("src",elem.image_url)
+        var name=document.createElement("p")
+        name.innerText=elem.name
+
+        var innd= document.createElement("div")
+        innd.setAttribute("class","innerdiv")
+        var price=document.createElement("p")
+
+        price.innerText=elem.price
+        var sprice=document.createElement("p")
+        sprice.innerText=elem.strikedoffprice
+        sprice.style.textDecoration="line-through"
+
+        innd.append(price,sprice)
+        var cart= document.createElement("button")
+        cart.innerText="Add to cart"
+        cart.addEventListener("click",function(){
+            addtocart(elem)
+        })
+
+        md.append(image,name,innd,cart)
+        document.querySelector("#container").append(md)
+
+
+    })
+    var cartArr=JSON.parse(localStorage.getItem("cartlocal")) || []
+    // var cart=[]
+    function addtocart(elem){
+        // console.log(elem)
+        cartArr.push(elem)
+        
+        localStorage.setItem("cartlocal",JSON.stringify(cartArr))
+        console.log(cartArr)
+    }
+
+    
+   
+
+</script>

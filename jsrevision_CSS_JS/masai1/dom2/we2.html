@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>que2</title>
+</head>
+<body>
+    <form id="formtag">
+        <input type="text" placeholder="Enter Name" id="name">
+        <input type="text" placeholder="Enter Age" id="age">
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <input type="text" placeholder="Enter email" id="email">
+        <input type="text" placeholder="Enter Mobile no." id="mob">
+        <input type="submit">
+
+    </form>
+</body>
+</html>
+
+<script>
+    document.querySelector("#formtag").addEventListener("submit", MF)
+    var students=[]
+    function MF(){
+        event.preventDefault()
+        var name = document.querySelector("#name").value
+        var age = document.querySelector("#age").value
+        var gender = document.querySelector("#gender").value
+        var email = document.querySelector("#email").value
+        var mobile = document.querySelector("#mob").value
+
+        var stuobj ={
+            studentName: name,
+            studentAge: age,
+            studentGender: gender,
+            studentEmail: email,
+            studentMobile: mobile
+        }
+        students.push(stuobj)
+        console.log(students)
+
+    }
+
+
+</script>

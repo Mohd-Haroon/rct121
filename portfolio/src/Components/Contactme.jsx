@@ -23,7 +23,7 @@ return(
             </text>
             <Heading mt="25px" align="center"  fontWeight="100" fontSize="3xl">You can also connect me on</Heading>
             <Box align="center">
-                <Flex mt="15px" w="150px" align="center" gap="15px">
+                <Flex mt="15px" w="150px" align="center" gap="15px" justifyContent="center">
                     <IconButton icon={<FaLinkedin/>} onClick={() =>window.open("https://www.linkedin.com/in/mohd-haroon-qureshi-b19827173/")}></IconButton>
                     <IconButton icon={<ImMail4/>} onClick={() =>window.open("https://www.qureshiharoon010203@gmail.com")}></IconButton>
                 </Flex>

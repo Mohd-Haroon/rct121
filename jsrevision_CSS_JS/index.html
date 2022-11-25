@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- for deploying fake API have used -->
+    <!-- https://github.com/nbkhope/fake-restful-api -->
+    <title>Country Data</title>
+    <style>
+        * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #form {
+            display: flex;
+            gap: 2%;
+            height: fit-content;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: teal;
+        }
+
+        h2 {
+            font-size: 14px;
+        }
+
+        #tableDiv {
+            align-items: center;
+            margin: auto;
+            display: grid;
+            /* width: 100vw; */
+            background-color: rgb(255, 255, 255);
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        #tbody {
+            /* width: 100%; */
+        }
+
+        th {
+            border: 1px solid black;
+            margin: 1px;
+        }
+
+        td {
+            border: 1px solid black;
+            margin: 1px;
+            text-align: center;
+        }
+
+        #tableData {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        #table {
+            align-items: center;
+            margin: auto;
+        }
+
+        #tableHeadCss {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #tableData {
+            background-color: #008080;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Country Data</h1>
+    <form id="form">
+        <div style="display:grid; grid-template-columns: 1fr 1fr">
+            <h2>Enter Country Name</h2>
+            <select name="countrySelection" id="countryName">
+                <option value="India">India</option>
+                <option value="Srilanka">Srilanka</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="America">America</option>
+            </select>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr">
+            <h2>Enter City Name</h2>
+            <input id="cityName" type="text" placeholder="cityName" />
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr">
+            <h2>Enter Population</h2>
+            <input id="population" type="number" placeholder="population" />
+        </div>
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div id="sorting"  style="display:flex; justify-content: center;" >
+        <div style="display:flex; margin:10px" >
+            <h5>Sort by Country</h5>
+            <select onchange='filtering()' name="countrySelection" id="filterSort">
+                <option value="India">India</option>
+                <option value="Srilanka">Srilanka</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="America">America</option>
+            </select>
+        </div>
+        <div style="display:flex; margin:10px" >
+            <h5>Sort by Population</h5>
+            <select onchange='sorting()' name="PopulationSort" id="popSort">
+                <option value="htl">High To Low</option>
+                <option value="lth">Low To High</option>
+            </select>
+        </div>
+
+    </div>
+    <div id="tableData1">
+        <div id="tableData">
+            <div id="tableHeadCss">ID</div>
+            <div id="tableHeadCss">Country</div>
+            <div id="tableHeadCss">City</div>
+            <div id="tableHeadCss">Population</div>
+            <div id="tableHeadCss">Edit</div>
+            <div id="tableHeadCss">Delete</div>
+        </div>
+        <div id="tbody1">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        var obj = {
+            country: document.querySelector("#countryName").value,
+            city: document.querySelector("#cityName").value,
+            population: document.querySelector("#population").value,
+        }
+        // [{},{},{}]
+        // console.log(obj)
+        postingData(obj)
+    });
+
+
+    const postingData = async (obj) => {
+        const response = await fetch("https://dbjsonfakeserver.herokuapp.com/data", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj),
+        }).then(()=>window.location.reload())
+    };
+
+    const getData = async (obj) => {
+        const res = await fetch("https://dbjsonfakeserver.herokuapp.com/data")
+        data = await res.json()
+        aapendData(data)
+    };
+    getData();
+
+    const aapendData = (data) => {
+        document.querySelector("#tbody1").innerHTML = ""
+        var count = 1
+        data.map(function (elem) {
+            var row = document.createElement("tr");
+            row.setAttribute("id", "tableDiv")
+            if(count%2==0){
+                row.style.background="#dac1c0";
+            }
+            var col1 = document.createElement("td");
+            col1.innerText = count++;
+            var col2 = document.createElement("td");
+            col2.innerText = elem.country;
+            var col3 = document.createElement("td");
+            col3.innerText = elem.city;
+            var col4 = document.createElement("td");
+            col4.innerText = elem.population;
+            var edit = document.createElement("button");
+            edit.setAttribute("id", "button")
+            edit.innerText = "EDIT";
+            var del = document.createElement("button");
+            del.setAttribute("id", "button")
+            del.innerText = "DELETE";
+            del.addEventListener('click', () => {
+                // console.log(elem.id);
+                deleteData(elem.id);
+
+            })
+            row.append(col1, col2, col3, col4, edit, del);
+            document.querySelector("#tbody1").append(row)
+        });
+        // console.log("gotData", data)
+    };
+    const deleteData = async (id) => {
+        const response = await fetch(`https://dbjsonfakeserver.herokuapp.com/data/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(()=>window.location.reload())
+    };
+
+    const sorting = async() => {
+        var vals = document.querySelector("#popSort").value
+        console.log(s)
+        const res = await fetch("https://dbjsonfakeserver.herokuapp.com/data")
+        data = await res.json()
+        // console.log(data)
+        if (s === 'lth') {
+            data = data.sort((a,b)=>a.population-b.population)
+            aapendData(data)
+        }else{
+            data = data.sort((a,b)=>b.population-a.population)
+            aapendData(data)
+        }
+    };
+
+    const filtering = async() => {
+        var s = document.querySelector("#filterSort").value
+        console.log(s)
+        const res = await fetch("https://dbjsonfakeserver.herokuapp.com/data")
+        data = await res.json()
+        if(s==="India"){
+            data = data.filter((e)=> e.country=="India")
+            aapendData(data)
+        }else if(s==="Srilanka"){
+            data = data.filter((e)=> e.country=="Srilanka")
+            aapendData(data)
+        }else if(s==="Pakistan"){
+            data = data.filter((e)=> e.country=="Pakistan")
+            aapendData(data)
+        }else if(s==="America"){
+            data = data.filter((e)=> e.country=="America")
+            aapendData(data)
+        }
+    };
+</script>

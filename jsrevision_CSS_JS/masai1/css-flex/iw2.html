@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            width: 75%;
+            height: 200px;
+            margin: auto;
+            
+            display: flex;
+            margin-top: 20px;
+        }
+        .flex>div {
+            height: 100%;
+            width: 200px;
+            background-color: teal;
+            margin-right: 20px;
+            border-radius: 10px;
+            
+            
+        }
+        .sec {
+            flex-grow: 1;
+        }
+        .fr {
+            flex-grow: 1;
+        }
+        .th {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div></div>
+        <div class="sec"></div>
+        <div></div>
+    </div>
+    <div class="flex">
+        <div class="fr"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="flex">
+        <div></div>
+        <div></div>
+        <div class="th"></div>
+    </div>
+</body>
+</html>

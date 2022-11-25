@@ -1,0 +1,74 @@
+v=<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #movies {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            width: 80%;
+            margin: auto;
+        }
+        #movies img {
+            width: 200px;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="searchMovie()">Trending Movies</button>
+
+    <div id="movies"></div>
+</body>
+</html>
+<script>
+    // // api key e784483fceaa4af28e98cdb3db695efe
+    // let url = 'https://api.themoviedb.org/3/trending/movie/day?api_key=e784483fceaa4af28e98cdb3db695efe'
+    // https://developers.themoviedb.org/3/getting-started/images
+    
+    // https://image.tmdb.org/t/p/w500/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg   path dalna tha isma
+
+    async function searchMovie(){
+    try{
+        
+        let res =await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=e784483fceaa4af28e98cdb3db695efe`)
+
+        let data = await res.json()
+        console.log("data",data)
+        
+        appendmovies(data.results)
+        }
+        catch(err){
+            console.log("error",err)
+        }
+    
+}
+
+let movie = document.querySelector("#movies")
+
+function appendmovies(data){
+    movie.innerHTML=null
+
+    if(data===undefined){
+        return false
+    }
+
+    data.forEach(function(ele){
+        let div = document.createElement('div')
+
+        let p = document.createElement('p')
+        p.innerText = ele.original_title
+        let img = document.createElement('img')
+        img.src  = `https://image.tmdb.org/t/p/w500/${ele.poster_path}`
+
+        div.append(p,img)
+
+        movie.append(div)
+
+    })
+
+}
+</script>

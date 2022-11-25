@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gc {
+            display: grid;
+            grid-template-columns: repeat(4,150px);
+            grid-template-rows: repeat(2,150px);
+            margin: auto;
+            gap: 15px;
+            width: 100%;
+            /* height: 600px; */
+            justify-content: center;
+            align-content: center;
+        }
+        #gc>div{
+            background-color: teal;
+            border-radius: 5px;
+        }
+        .a{
+            grid-area: 1/1/2/3;
+        }
+        .b{
+            grid-area: 1/3/3/4;
+        }
+        .e{
+            grid-area: 1/4/3/5;
+        }
+        #gc2 {
+            display: grid;
+            grid-template-columns: repeat(4,150px);
+            grid-template-rows: repeat(3,150px);
+            margin: auto;
+            gap: 15px;
+            width: 100%;
+            /* height: 600px; */
+            justify-content: center;
+            align-content: center;
+            margin-top: 100px;
+        }
+        #gc2>div{
+            background-color: teal;
+            border-radius: 5px;
+        }
+        .f{
+            grid-area: 1/1/2/3;
+        }
+        .g{
+            grid-area: 1/3/2/5;
+        }
+        .i{
+            grid-area: 2/2/3/5;
+        }
+        .j{
+            grid-area: 3/1/4/5;
+        }
+    </style>
+</head>
+<body>
+    <div id="gc">
+
+        <div class="a">A</div>
+        <div class="b">B</div>
+        <div class="c">C</div>
+        <div class="d">D</div>
+        <div class="e">E</div>
+    </div>
+
+    <div id="gc2">
+
+        <div class="f">A</div>
+        <div class="g">B</div>
+        <div class="h">C</div>
+        <div class="i">D</div>
+        <div class="j">E</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //ES6 classes
+
+    // function Person(n,a){
+    //     this.name=n
+    //     this.age=a
+    //     this.showName = () =>{
+    //         console.log(this.name)
+    //     }
+    // }
+
+    // const p1 = new Person("msd",23)
+    // console.log("p1",p1)
+    // p1.showName()
+
+
+    class Person{
+
+        constructor(n,a){
+            this.name=n
+            this.age=a
+        }
+
+        showName(){
+            console.log(this.name)
+        }
+    }
+
+    let p1 = new Person("msd",23)
+    console.log("p1",p1)
+    p1.showName()
+
+    // ES6 class gives you a mpre flexibility for adding methods
+    //inheritence
+
+    class Cat{             //base class
+        constructor(s,l){
+            this.species= s 
+            this.legs= l
+            this.furs=true
+        }
+    }
+
+    class Tiger extends Cat {
+        constructor(s,l){
+            super(s,l)  // line 5
+            this.speed = 60
+        }
+    }
+
+        // let t1 =new Tiger('cat',4)
+
+        // console.log("t1",t1)
+
+    class whiteTiger extends Tiger{
+        constructor(s,l){
+            super(s,l)
+            this.name="simba"
+        }
+    }
+    let w1 = new whiteTiger('cat',10)
+    console.log("w1",w1)
+
+
+    class MyStack{
+
+
+        constructor(){
+            this.length = 0;
+            this.stack=[];
+
+        }
+            push(...value){
+
+                value.forEach((el)=>{
+                    this.stack.push(el)
+                    this.length++
+                })
+                
+                console.log(this.stack)
+            }
+
+            remove(){
+                this.stack.pop()
+                this.length--
+                console.log(this.stack)
+            }
+    }
+
+
+    let stack= new MyStack()
+
+    stack.push(2,3,4,5,6)
+    // stack.push(3,4,5)
+    // console.log("stack",stack)
+
+
+</script>

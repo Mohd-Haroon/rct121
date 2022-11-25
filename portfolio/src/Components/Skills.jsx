@@ -2,7 +2,7 @@ import React from "react";
 import {VStack, Grid, GridItem,Stack, SimpleGrid , Flex,Box, Text,Heading,Spacer} from "@chakra-ui/layout"
 import { FaHtml5,FaCss3Alt,FaReact,FaNodeJs} from "react-icons/fa";
 import {DiJavascript1} from "react-icons/di"
-import {SiRedux,SiChakraui,SiMongodb,SiExpress} from "react-icons/si"
+import {SiRedux,SiChakraui,SiMongodb,SiExpress,SiRedis,SiSocketdotio} from "react-icons/si"
 import {Image} from "@chakra-ui/image"
 import { useColorMode } from "@chakra-ui/color-mode";
 import {useMediaQuery} from "@chakra-ui/media-query";
@@ -16,7 +16,8 @@ export const Skills=()=>{
     return(
         <VStack>
             <Heading borderBottom="2px solid steelblue" mt="100px" mb="50px" fontWeight="100" align="center" fontSize="5xl">Skills</Heading>
-            <Flex flexDirection ={["column", "row", "row", "row", "row"]} 
+            <Flex flexWrap="wrap"
+            justifyContent="center"
             gap="25px"
             alignSelf="flex-end">
                 <Box w="350px" >
@@ -56,6 +57,12 @@ export const Skills=()=>{
                         </Flex>
                         <Flex p="15px" w="300px" boxShadow='outline' rounded='md' align="center" gap="15px" _hover={{transform: 'scale(1.05)',transition:"all .25s ease-in"}}>
                             <SiExpress/>Express.js
+                        </Flex>
+                        <Flex p="15px" w="300px" boxShadow='outline' rounded='md' align="center" gap="15px" _hover={{transform: 'scale(1.05)',transition:"all .25s ease-in"}}>
+                            <SiRedis/>Redis
+                        </Flex>
+                        <Flex p="15px" w="300px" boxShadow='outline' rounded='md' align="center" gap="15px" _hover={{transform: 'scale(1.05)',transition:"all .25s ease-in"}}>
+                            <SiSocketdotio/>WebSocket
                         </Flex>
                         
                     </Flex>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        /* background-color: #3CBC8D;
+        color: white;         */
+        }
+        input[type=text]:focus {
+        border: 3px solid #555;
+        }
+        input[type=submit] {
+        background-color: #04AA6D;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <form id="form">
+        <p>Enter your name</p>
+        <input type="text" placeholder="Type Here" id="name">
+        <p>Enter your Phone number</p>
+        <input type="text" placeholder="Type Here" id="num">
+        <p>Enter city-name</p>
+        <input type="text" placeholder="Type Here" id="city">
+        <input type="submit">
+
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",studentdata)
+    var arraystu = JSON.parse(localStorage.getItem("datastudent")) || []
+    function studentdata(){
+        event.preventDefault()
+         
+         var name= document.querySelector("#name").value 
+         var phone= document.querySelector("#num").value 
+         var city= document.querySelector("#city").value 
+
+         function studata(name,phone,city){
+             this.Name = name
+             this.Phone = phone
+             this.City = city
+         }
+         let s = new studata(name,phone,city)
+         console.log(s)
+         arraystu.push(s)
+         console.log(arraystu)
+         localStorage.setItem("datastudent",JSON.stringify(arraystu))
+         window.location.href="display.html"
+    }
+</script>

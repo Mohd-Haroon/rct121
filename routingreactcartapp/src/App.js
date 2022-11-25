@@ -16,7 +16,7 @@ import { RequiredAuth } from "./Component/RequiredAuth";
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      {/* <h1>Hello</h1> */}
       <Navbar/>
       <Routes>
         <Route path="product/*" element={<Products />}>
@@ -31,13 +31,14 @@ function App() {
         <Route path="faq" element={<Faq />} />
         <Route path="login" element={<Login />} />
         <Route
-          path="cart"
+          path="/cart"
           element={
             <RequiredAuth>
               <Cart />
             </RequiredAuth>
           }
         />
+
       </Routes>
     </div>
   );

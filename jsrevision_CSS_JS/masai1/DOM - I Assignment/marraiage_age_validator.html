@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="age" name="age" id="age">
+    <select id="gender">
+        <option value="">--</option>
+        <option value="male">M</option>
+        <option value="female">F</option>
+      </select>
+      <button onclick="judgement()">Submit</button>
+        <h2 id="para">Judgement</h2>
+</body>
+</html>
+
+<script>
+    function judgement(){
+        var dage= document.getElementById("age").value 
+        var dgender=document.getElementById("gender").value
+        if(dage>=21 && dgender=="male")
+        {
+            // console.log("eligible for marriage")
+            document.getElementById("para").innerText="male eligible for marriage"
+        }
+        else if(dage<21 && dgender=="male")
+        {
+            // console.log("not eligible for marriage")
+            document.getElementById("para").innerText="Male not eligible for marriage"
+        }
+        else if(dage>=18 && dgender=="female")
+        {
+            // console.log("eligible for marriage")
+            document.getElementById("para").innerText="Female eligible for marriage"
+        }
+        else
+        {
+            // console.log("not eligible for marriage")
+            document.getElementById("para").innerText="Female not eligible for marriage"
+        }
+        
+
+    }
+
+</script>

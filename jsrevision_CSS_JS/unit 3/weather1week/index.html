@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body {
+            font-family: sans-serif;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d2/False_Sunrise.jpg');
+        }
+        #cont {
+            
+            display: flex;
+            /* border: 1px solid red; */
+            justify-content: center;
+            justify-content: space-around;
+            width: 75%;
+            margin: auto;
+            /* background-color: wheat; */
+            margin-top: 100px;
+        }
+        #cont>div {
+            pad: 20px;
+        }
+        #nav {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            background-color: teal;
+
+        }
+        #nav>button,input[type=text]{
+            margin-right: 20px;
+            margin-left: 20px;
+            border-radius: 5px;
+            padding: 5px 5px;
+        }
+        #nav>button {
+            border-radius: 5px;
+            color: white;
+            background-color: black;
+        }
+        #nav h1 {
+            margin-left: 200px;
+            font-size: 50px;
+            font-family: sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <input type="text" id="city" placeholder="Enter City Name">
+        <button onclick="getWeather()">Get Weather</button>
+        <h1>Weather Guru</h1>
+    </div>
+    
+    <div id="cont"></div>
+</body>
+</html>
+
+<script>
+//  let url = `https://api.openweathermap.org/data/2.5/weather?q=${c}&appid=c71f3c4910761c7b2e443ce0522b4c96&units=metric`
+    async function getWeather(){
+        try{
+            // city name
+            let city = document.querySelector("#city").value 
+            // fetching data 
+            let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c71f3c4910761c7b2e443ce0522b4c96&units=metric&cnt=7`)
+            // parse data
+            let data = await res.json()
+            console.log("data:",data.coord)
+            let lon = data.coord.lon
+            let lat = data.coord.lat
+            let res2 =await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=c71f3c4910761c7b2e443ce0522b4c96`)
+            let data2= await res2.json()
+            console.log("data2:",data2.daily)
+
+            // appendData(data) // displaydaa
+
+            
+        }
+        catch(err){
+            console.log("err:",err)
+        }
+        
+
+    }
+    let container = document.querySelector("#cont")
+    // appendData(data)
+    function appendData(data){
+        container.innerHTML = ""
+        let diva = document.createElement('div')
+        let divb = document.createElement('div')
+
+        let name = document.createElement('h2')
+        name.innerText = "City: "+data.name
+
+        let temp = document.createElement('h3')
+        temp.innerText = "Temperature ^C:"+ data.main.temp
+
+        let tempmin = document.createElement('h3')
+        tempmin.innerText = "Temperature-min:"+ data.main.temp_min
+
+        let tempmax = document.createElement('h3')
+        tempmax.innerText = "Temperature-max:"+ data.main.temp_max
+
+        let wind = document.createElement('h3')
+        wind.innerText = "Wind-speed:"+ data.wind.speed
+
+        let sunrise = document.createElement('h3')
+        sunrise.innerText = "Sunrise:"+ data.sys.sunrise
+
+        let sunset = document.createElement('h3')
+        sunset.innerText = "Sunset:"+ data.sys.sunset
+
+        let clouds = document.createElement('h3')
+        clouds.innerText = "Clouds:"+ data.clouds.all
+
+        let pressure = document.createElement('h3')
+        pressure.innerText ="Pressure:  "+ data.main.pressure
+
+        let humidity = document.createElement('h3')
+        humidity.innerText ="Humidity: "+ data.main.humidity
+
+        let iframe = document.createElement('iframe')
+        iframe.src =`https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+        iframe.width = '600px'
+        iframe.height = '400px'
+
+        diva.append(name,temp,tempmin,tempmax,wind,sunset,sunrise,pressure,clouds,humidity)
+        divb.append(iframe)
+
+        container.append(diva,divb)
+    }
+
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+        width: 50%;
+        border-collapse: collapse;
+        }
+
+        th {
+        background-color: #04AA6D;
+        color: white;
+        height: 30px;
+        
+        }
+
+        /* table, th, td {
+        /* border: 1px solid; */
+        /* } */ */
+
+        th, td {
+        padding: 15px;
+        text-align: left;
+        }
+        tr:nth-child(even) {background-color: #f2f2f2;}
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Sr.no.</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>City</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+</body>
+</html>
+<script>
+    var list = JSON.parse(localStorage.getItem("datastudent"))
+    console.log(list)
+
+    list.map(function(elem,index){
+
+        var row = document.createElement("tr")
+
+        var col1 = document.createElement("td")
+        col1.innerText=index+1
+        var col2 = document.createElement("td")
+        col2.innerText=elem.Name
+        var col3 = document.createElement("td")
+        col3.innerText=elem.Phone
+        var col4 = document.createElement("td")
+        col4.innerText=elem.City
+
+        row.append(col1,col2,col3,col4)
+        document.querySelector("tbody").append(row)
+
+
+    })
+</script>

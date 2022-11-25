@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menitems</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+        .innerdiv {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.location.href='cart.html'">Goto cart</button>
+    <select onchange="sortitems()" id="sorter">
+        <option value="">Sort By</option>
+        <option value="h2l">High to low</option>
+        <option value="l2h">Low to High</option>
+    </select>
+    <input onkeyup="search()" id="search">
+    <select onchange="filteritems()" id="filter">
+        <option value="">Filter By</option>
+        <option value="5000">> 5000</option>
+        <option value="3000">> 3000</option>
+        <option value="1000">> 1000</option>
+    </select>
+    <button id="clearfilter">Reset</button>
+    <H1 id="items">0</H1>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script src="./mensData.js"></script>
+<script>
+    var mandatas= JSON.parse(localStorage.getItem("mensData"))
+    // console.log(mandatas)
+    displayData(mandatas)
+    function displayData(mandatas){
+            document.querySelector("#container").innerHTML=""
+            // mapping
+
+            mandatas.map(function(elem,index){
+            var md = document.createElement("div")
+
+            var image= document.createElement("img")
+            image.setAttribute("src",elem.image_url)
+            var name=document.createElement("p")
+            name.innerText=elem.name
+
+            var innd= document.createElement("div")
+            innd.setAttribute("class","innerdiv")
+            var price=document.createElement("p")
+
+            price.innerText=elem.price
+            var sprice=document.createElement("p")
+            sprice.innerText=elem.strikedoffprice
+            sprice.style.textDecoration="line-through"
+
+            innd.append(price,sprice)
+            var cart= document.createElement("button")
+            cart.innerText="Add to cart"
+            cart.addEventListener("click",function(){
+                addtocart(elem)
+            })
+
+            md.append(image,name,innd,cart)
+            document.querySelector("#container").append(md)
+        })
+    }
+
+
+    var cartArr= JSON.parse(localStorage.getItem("cartlocal")) || []
+    function addtocart(elem){
+        // console.log(elem)
+        elem.quant=1
+        cartArr.push(elem)
+        // console.log(cartArr)
+        localStorage.setItem("cartlocal",JSON.stringify(cartArr))
+
+    }
+    
+    function sortitems(){
+        var sorting = document.querySelector("#sorter").value
+        console.log(sorting)
+        if(sorting == "h2l"){
+            mandatas.sort(function(a, b){
+                return b.price - a.price;
+            })
+            displayData(mandatas)
+        }
+        else if(sorting == "l2h"){
+            mandatas.sort(function(a, b){
+                return a.price - b.price;
+            })
+            displayData(mandatas)
+        }
+    }
+     function search(){
+         var searchText =document.querySelector("#search").value
+         console.log(searchText)
+         var filterdata = mandatas.filter(function(elem){
+             return elem.name.includes(searchText)
+         })
+         console.log(filterdata)
+         displayData(filterdata)
+         document.querySelector("#items").innerText= filterdata.length
+     }
+
+     function filteritems(){
+         var filter =document.querySelector("#filter").value
+         console.log(filter)
+         var filterdata = mandatas.filter(function(elem){
+             return elem.price > Number(filter)
+         })
+         console.log(filterdata)
+         displayData(filterdata)
+         document.querySelector("#items").innerText= filterdata.length
+     }
+
+     function clearfilter(){
+        mandatas= JSON.parse(localStorage.getItem("mensData"))
+        displayData(mandatas)
+        document.querySelector("#items").innerText= mandatas.length
+        document.querySelector("#search").value=""
+        document.querySelector("#sorter").value=""
+        document.querySelector("#filter").value=""
+
+     }
+   
+
+</script>

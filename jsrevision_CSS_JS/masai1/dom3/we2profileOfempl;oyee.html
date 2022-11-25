@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 15px;
+            width: 80%;
+            margin: auto;
+
+        }
+        #cont>div {
+            text-align: center;
+            border: box-shadow rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+
+        }
+        #logo {
+            height: 50px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+
+    </div>
+</body>
+</html>
+<script>
+    var investors =[
+        {name:"Vijay Shekhar Sharma",role:"Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg"},
+        {name:"Kunal Shah",role:"Founder",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png"},
+        {name:"Amrish Rau",role:"CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg"},
+        {name:"Sampad Swain",role:"Co-Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg"},
+        {name:"Ankush Sachdeva",role:"Co-Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Ankush_Sachdeva_Sharechat_4e44dbbe6b.jpg"},
+        {name:"Bhanu Pratap Singh",role:"Co-Founder & CTO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/bhanu_pratap_singh_sharechat_11fdd7b47a.jpg"},
+        {name:"Vijay Shekhar Sharma",role:"Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg"},
+        {name:"Kunal Shah",role:"Founder",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png"},
+        {name:"Amrish Rau",role:"CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg"},
+        {name:"Sampad Swain",role:"Co-Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg"},
+        {name:"Ankush Sachdeva",role:"Co-Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Ankush_Sachdeva_Sharechat_4e44dbbe6b.jpg"},
+        {name:"Bhanu Pratap Singh",role:"Co-Founder & CTO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/bhanu_pratap_singh_sharechat_11fdd7b47a.jpg"},
+         {name:"Vijay Shekhar Sharma",role:"Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg"},
+        {name:"Kunal Shah",role:"Founder",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png"},
+        {name:"Amrish Rau",role:"CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg"},
+        {name:"Sampad Swain",role:"Co-Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg"},
+        {name:"Ankush Sachdeva",role:"Co-Founder & CEO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Ankush_Sachdeva_Sharechat_4e44dbbe6b.jpg"},
+        {name:"Bhanu Pratap Singh",role:"Co-Founder & CTO",logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/bhanu_pratap_singh_sharechat_11fdd7b47a.jpg"},
+        
+
+    ]
+
+    investors.map(function(elem,index,array){
+        var div= document.createElement("div")
+
+        var image=document.createElement("img")
+        image.setAttribute("src",elem.image)
+
+        var h4=document.createElement("h4")
+        h4.innerText=elem.name
+        var para=document.createElement("p")
+        para.innerText =elem.role
+
+        var log=document.createElement("img")
+        log.setAttribute("id","logo")
+        log.setAttribute("src",elem.logo)
+
+        div.append(image,h4,para,log)
+
+        document.querySelector("#cont").append(div)
+
+    })
+
+
+
+</script>
